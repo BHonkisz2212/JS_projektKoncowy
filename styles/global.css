@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:ital,opsz,wght@0,8..30,100..900;1,8..30,100..900&display=swap');
+
+
+
+.video {
+  height: 200px;
+}
+body {
+  margin: 0;
+  font-family: "Piazzolla", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  background-image: url("../assets/892996.png");
+}
+.btn{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 30px;
+    border: 2px solid #02411e;
+    border-radius: 22px;
+    padding: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+    background-color: rgba(163, 195, 239, 0.801);
+    list-style-type: none;
+}
+.btn.hover{
+    background: rgba(0, 128, 0, 0.404);
+}
+
+
+.btn-return {
+    align-self: flex-start;
+}
+
+.btn-purchase {
+    align-self: flex-end;
+}
+
+
