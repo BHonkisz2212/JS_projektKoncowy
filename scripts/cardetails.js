@@ -52,7 +52,6 @@ function handlePurchase() {
     }
   }
   
-
   function checkInput() {
     localStorage.setItem('finance', document.querySelector('input[name="finance"]:checked').value);
     localStorage.setItem('ownerName', document.getElementById('owner-name').value);
@@ -69,20 +68,17 @@ function clearLocalStorage() {
   console.log("Wyczyszczono dane z localStorage.");
 }
 function setDefaultDeliveryDate() {
-  var today = new Date(); // Pobierz bieżącą datę
-  var deliveryDate = new Date(today.getTime() + (14 * 24 * 60 * 60 * 1000)); // Dodaj 14 dni
-  // Ustaw wartość pola input na sformatowaną datę
+  var today = new Date(); 
+  var deliveryDate = new Date(today.getTime() + (14 * 24 * 60 * 60 * 1000)); 
   var deliveryDateInput = document.getElementById('delivery-date');
-  var formattedDate = deliveryDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
+  var formattedDate = deliveryDate.toISOString().split('T')[0]; 
   deliveryDateInput.value = formattedDate;
-  // document.getElementById('delivery-date').value=localStorage.setItem('deliveryDate')
 }
 window.onload = function() {
   setDefaultDeliveryDate();
 };
-    // Funkcja do aktualizacji całkowitej ceny na podstawie zaznaczonych opcji
     function updateTotalPrice() {
-      let totalPrice = 50000; // Cena bazowa
+      let totalPrice = 50000;
       const checkboxes = document.querySelectorAll('input[name="accessories[]"]:checked');
       checkboxes.forEach(checkbox => {
           const accessoryPrice = parseFloat(checkbox.value.split(' - ')[1].replace('$', ''));
@@ -90,7 +86,6 @@ window.onload = function() {
       });
       document.getElementById('totalPrice').textContent = `Cena całkowita: ${totalPrice.toFixed(2)} PLN`;
   }
-  // Nasłuchuj zmian w checkboxach
   const accessoryCheckboxes = document.querySelectorAll('input[name="accessories[]"]');
   accessoryCheckboxes.forEach(checkbox => {
       checkbox.addEventListener('change', updateTotalPrice);
