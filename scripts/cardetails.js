@@ -4,9 +4,8 @@
   document
     .getElementById("purchaseButton")
     .addEventListener("click", function () {
-      // Wywołaj funkcję validateForm()
       if (validateForm()) {
-        // Jeżeli validateForm() zwróciła true, wywołaj funkcję handlePurchase()
+        // Jeżeli validateForm() zwróciła true, wywołaj funkcję handlePurchase() - to również nie chce mi działać :(
         handlePurchase();
       }
     });
