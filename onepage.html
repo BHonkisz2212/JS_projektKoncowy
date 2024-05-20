@@ -10,12 +10,28 @@
     <script defer src="./scripts/carlist.js"></script>
 </head>
 <body>
+     <h1>Podsumowanie Samochodu</h1>
+    <div id="car-summary">
+        <p id="car-mark">Marka: </p>
+        <p id="car-price">Cena: </p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const carMark = params.get('mark');
+            const carPrice = params.get('price');
+            
+            document.getElementById('car-mark').innerText = `Marka: ${carMark}`;
+            document.getElementById('car-price').innerText = `Cena: $${carPrice}`;
+        });
+        
+    </script>
     <div id="container">
+        <div id="car-mark-container"></div>
         <header>
     
             <nav>
-        <p id="totalPrice">Cena całkowita:5 000$</p>
-        <p id="carModel">Wybrany Model: Volkswagen Golf II</p>
+
             </nav>
           </header>
     <form id="car-config-form" onsubmit="return validateForm()">
