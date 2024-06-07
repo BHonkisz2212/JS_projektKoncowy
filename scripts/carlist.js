@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-let $carMark = document.getElementById("carMark").value();
 function showConfigForm(carId) {
   let carDetails = document.querySelector("#" + carId);
   let configForm = document.getElementById("config-form");
@@ -26,6 +25,5 @@ function showConfigForm(carId) {
   let $carMark = document.getElementById("carMark").value();
 
   carList.style.display = "none";
-  // carDetails.style.display = "block";
   configForm.style.display = "block";
 }

@@ -20,8 +20,6 @@ main{
     margin: 0 auto;
     display: flex;
     background-color: rgba(255, 255, 255, 0.563);
- 
-   /* align-items: center; */
   }
   header {
     display: flex;
@@ -41,7 +39,6 @@ nav {
     font-style:bold;
     background-color: rgb(225, 228, 231);
     gap: 200px;
-    /* display: flex;   */
     margin-top: 10px; 
     margin-bottom: 0px;
 }

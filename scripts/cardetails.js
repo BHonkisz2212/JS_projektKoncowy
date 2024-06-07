@@ -8,23 +8,15 @@ function setDefaultDeliveryDate() {
 window.onload = function () {
   setDefaultDeliveryDate();
 };
-let sentence1 = "wybrałeś samochód marki" + $carMark;
-alert(sentence1);
-document.getElementById("car-mark-container").innerHTML = $carMark;
 document
   .getElementById("purchaseButton")
   .addEventListener("click", function () {
     if (validateForm()) {
-      // Jeżeli validateForm() zwróciła true, wywołaj funkcję handlePurchase() - to również nie chce mi działać :(
       handlePurchase();
     }
   });
 
 function handlePurchase() {
-  // if (validateForm()) {
-  document.getElementById("purchaseButton").onclick =
-    "window.location.href='summary.html'"; // Przekierowanie do 'summary.html', które nie chce działać :(
-  // }
 }
 
 function checkInput() {
@@ -74,15 +66,7 @@ function checkInput() {
     document.getElementById("delivery-date").value
   );
 }
-
 window.onload = function () {
-  document.querySelector(
-    'input[name="finance"][value="' + localStorage.getItem("finance") + '"]'
-  ).checked = true;
-  document.getElementById("owner-name").value =
-    localStorage.getItem("ownerName");
-  document.getElementById("delivery-date").value =
-    localStorage.getItem("deliveryDate");
 };
 function clearLocalStorage() {
   localStorage.clear();
@@ -110,3 +94,12 @@ const accessoryCheckboxes = document.querySelectorAll(
 accessoryCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", updateTotalPrice);
 });
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const params = new URLSearchParams(window.location.search);
+          const carMark = params.get("mark");
+          const carPrice = params.get("price");
+
+          document.getElementById("car-mark").innerText = `Marka: ${carMark}`;
+          document.getElementById("car-price").innerText = `Cena: $${carPrice}`;
+        });

@@ -15,17 +15,7 @@
         <p id="car-mark">Marka: </p>
         <p id="car-price">Cena: </p>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const carMark = params.get('mark');
-            const carPrice = params.get('price');
-            
-            document.getElementById('car-mark').innerText = `Marka: ${carMark}`;
-            document.getElementById('car-price').innerText = `Cena: $${carPrice}`;
-        });
-        
-    </script>
+
     <div id="container">
         <div id="car-mark-container"></div>
         <header>
@@ -66,7 +56,7 @@
             <div id="error-message" style="color: red; display: none;">Proszę uzupełnić wszystkie pola poprawnie.</div>
             <div id="success-message" style="color: green; display: none;">Potwierdzenie zakupu: Samochód został
                 skonfigurowany i zakupiony.</div>
-                <button type="button" id="purchaseButton" class ="btn" onclick="validateForm()">Zakup</button>
+                <button type="button" id="purchaseButton" class ="btn">Zakup</button>
             </form>
             <button  id="btn-return" class="btn btn-return" onclick="window.location.href='index.html'">Powrót do listy
                 samochodów</button>
