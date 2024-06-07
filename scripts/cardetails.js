@@ -16,9 +16,6 @@ document
     }
   });
 
-function handlePurchase() {
-}
-
 function checkInput() {
   let $customerName = document.getElementById("owner-name").value;
 
@@ -74,7 +71,7 @@ function clearLocalStorage() {
 }
 
 function updateTotalPrice() {
-  let totalPrice = 50000;
+  let accessoriesPrice = 0;
   const checkboxes = document.querySelectorAll(
     'input[name="accessories[]"]:checked'
   );
@@ -82,11 +79,12 @@ function updateTotalPrice() {
     const accessoryPrice = parseFloat(
       checkbox.value.split(" - ")[1].replace("$", "")
     );
-    totalPrice += accessoryPrice;
+    accessoriesPrice += accessoryPrice;
   });
   document.getElementById(
-    "totalPrice"
-  ).textContent = `Cena całkowita: ${totalPrice.toFixed(2)} PLN`;
+    "accessories-price"
+  ).textContent = `Cena dodatków: ${accessoriesPrice.toFixed(2)} $`;
+
 }
 const accessoryCheckboxes = document.querySelectorAll(
   'input[name="accessories[]"]'
@@ -95,11 +93,13 @@ accessoryCheckboxes.forEach((checkbox) => {
   checkbox.addEventListener("change", updateTotalPrice);
 });
 
-        document.addEventListener("DOMContentLoaded", () => {
-          const params = new URLSearchParams(window.location.search);
-          const carMark = params.get("mark");
-          const carPrice = params.get("price");
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const carMark = params.get("mark");
+  const carPrice = params.get("price");
 
-          document.getElementById("car-mark").innerText = `Marka: ${carMark}`;
-          document.getElementById("car-price").innerText = `Cena: $${carPrice}`;
-        });
+  document.getElementById("car-mark").innerText = `Marka: ${carMark}`;
+  document.getElementById("car-price").innerText = `Cena: $${carPrice}`;
+  document.getElementById("accessories-price").innerText = `Cena dodatków: $${accessoriesPrice}`;
+  document.getElementById("final-price").textContent = `Cena całkowita: $${accessoriesPrice} +${carPrice}`
+})
